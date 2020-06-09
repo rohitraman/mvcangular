@@ -56,9 +56,9 @@ namespace MVCAngular
             {
                 app.UseSpaStaticFiles();
             }
+            context.Database.Migrate();
 
             app.UseRouting();
-
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllerRoute(
@@ -66,7 +66,6 @@ namespace MVCAngular
                     pattern: "{controller}/{action=Index}/{id?}");
             });
 
-            context.Database.Migrate();
 
             app.UseSpa(spa =>
             {
